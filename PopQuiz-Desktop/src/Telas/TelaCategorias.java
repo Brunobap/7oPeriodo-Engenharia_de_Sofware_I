@@ -1,24 +1,27 @@
 package Telas;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.border.EmptyBorder;
+import java.awt.EventQueue;
 import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 public class TelaCategorias extends JFrame {
 
-    private static final long serialVersionUID = 1L;
-    private JPanel contentPane;
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
 
-    /**
-     * Create the frame.
-     */
-    public TelaCategorias() {
-        setTitle("Categorias");
+	/**
+	 * Create the frame.
+	 */
+	public TelaCategorias() {
+		setResizable(false);
+		setTitle("Categorias");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 300, 200);
+        setBounds(100, 100, 371, 296);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -44,5 +47,6 @@ public class TelaCategorias extends JFrame {
 
         JButton btnEsportes = new JButton("Esportes");
         contentPane.add(btnEsportes);
-    }
+	}
+
 }
