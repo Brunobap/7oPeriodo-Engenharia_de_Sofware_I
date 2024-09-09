@@ -87,7 +87,7 @@ public class TelaCadastro extends JFrame {
 				String confirmarSenha = new String(passwordField_2.getPassword());
 				
 				// Verificar se as senhas são iguais
-				if (!senha.equals(confirmarSenha)) {
+				if (!senha.equals(confirmarSenha) || senha.length()==0) {
 					JOptionPane.showMessageDialog(null, "Senhas diferentes, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
 				} else {
 					// Senhas iguais, pode avançar para a próxima tela
