@@ -6,6 +6,9 @@ import java.awt.GridLayout;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -94,6 +97,17 @@ public class TelaCadastro extends JFrame {
 					TelaCategorias categorias = new TelaCategorias();
 					categorias.setVisible(true);
 					dispose();
+					try {
+	                    Class.forName("com.mysql.cj.jdbc.Driver");
+	                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/strauss","root","coxinha");
+	                    System.out.println("inserindo dados");
+	                    Statement stmt=con.createStatement();
+	                    String sql="INSERT INTO usuarios(email,senha) VALUES('"+textField_1.getText()+"','"+passwordField_1.getText().toString()+"')";
+	                    stmt.executeUpdate(sql);
+	                }
+	                catch (Exception execao){
+	                    System.out.println(execao);
+	                }
 				}
 			}
 		});
