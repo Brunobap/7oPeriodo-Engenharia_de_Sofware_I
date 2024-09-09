@@ -2,18 +2,18 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Brunobap/.p2/pool/plugins/com.ibm.icu_73.1.0.jar" sourcepath="C:/Users/Brunobap/.p2/pool/plugins/com.ibm.icu_73.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.core.commands_3.11.0.v20230317-0802.jar" sourcepath="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.core.commands_3.11.0.v20230317-0802.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.core.runtime_3.27.0.v20230515-1719.jar" sourcepath="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.core.runtime_3.27.0.v20230515-1719.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.e4.ui.di_1.5.0.v20230501-1823.jar" sourcepath="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.e4.ui.di_1.5.0.v20230501-1823.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.equinox.common_3.18.0.v20230523-2142.jar" sourcepath="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.equinox.common_3.18.0.v20230523-2142.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.equinox.registry_3.11.200.v20220817-1601.jar" sourcepath="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.equinox.registry_3.11.200.v20220817-1601.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.jface_3.30.0.v20230509-0720.jar" sourcepath="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.jface_3.30.0.v20230509-0720.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.jface.text_3.24.0.v20230525-0719.jar" sourcepath="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.jface.text_3.24.0.v20230525-0719.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.osgi_3.18.400.v20230509-2241.jar" sourcepath="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.osgi_3.18.400.v20230509-2241.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.124.0.v20230523-1044.jar" sourcepath="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.124.0.v20230523-1044.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.text_3.13.0.v20230316-1200.jar" sourcepath="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.text_3.13.0.v20230316-1200.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.ui.forms_3.12.0.v20230317-0802.jar" sourcepath="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.ui.forms_3.12.0.v20230317-0802.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.ui.workbench_3.129.0.v20230525-0648.jar" sourcepath="C:/Users/Brunobap/.p2/pool/plugins/org.eclipse.ui.workbench_3.129.0.v20230525-0648.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="lib" path="./libs/com.ibm.icu_75.1.0.jar" sourcepath="./libs/com.ibm.icu_75.1.0.jar"/>
+	<classpathentry kind="lib" path="./libs/org.eclipse.core.commands_3.12.100.v20240424-0956.jar" sourcepath="./libs/org.eclipse.core.commands_3.12.100.v20240424-0956.jar"/>
+	<classpathentry kind="lib" path="./libs/org.eclipse.core.runtime_3.31.100.v20240524-2010.jar" sourcepath="./libs/org.eclipse.core.runtime_3.31.100.v20240524-2010.jar"/>
+	<classpathentry kind="lib" path="./libs/org.eclipse.e4.ui.di_1.5.400.v20240321-1245.jar" sourcepath="./libs/org.eclipse.e4.ui.di_1.5.400.v20240321-1245.jar"/>
+	<classpathentry kind="lib" path="./libs/org.eclipse.equinox.common_3.19.100.v20240524-2011.jar" sourcepath="./libs/org.eclipse.equinox.common_3.19.100.v20240524-2011.jar"/>
+	<classpathentry kind="lib" path="./libs/org.eclipse.equinox.registry_3.12.100.v20240524-2011.jar" sourcepath="./libs/org.eclipse.equinox.registry_3.12.100.v20240524-2011.jar"/>
+	<classpathentry kind="lib" path="./libs/org.eclipse.jface.text_3.25.100.v20240524-2010.jar" sourcepath="./libs/org.eclipse.jface.text_3.25.100.v20240524-2010.jar"/>
+	<classpathentry kind="lib" path="./libs/org.eclipse.jface_3.34.0.v20240502-1134.jar" sourcepath="./libs/org.eclipse.jface_3.34.0.v20240502-1134.jar"/>
+	<classpathentry kind="lib" path="./libs/org.eclipse.osgi_3.20.0.v20240509-1421.jar" sourcepath="./libs/org.eclipse.osgi_3.20.0.v20240509-1421.jar"/>
+	<classpathentry kind="lib" path="./libs/org.eclipse.swt.win32.win32.x86_64_3.126.0.v20240528-0813.jar" sourcepath="./libs/org.eclipse.swt.win32.win32.x86_64_3.126.0.v20240528-0813.jar"/>
+	<classpathentry kind="lib" path="./libs/org.eclipse.text_3.14.100.v20240524-2010.jar" sourcepath="./libs/org.eclipse.text_3.14.100.v20240524-2010.jar"/>
+	<classpathentry kind="lib" path="./libs/org.eclipse.ui.forms_3.13.300.v20240424-0956.jar" sourcepath="./libs/org.eclipse.ui.forms_3.13.300.v20240424-0956.jar"/>
+	<classpathentry kind="lib" path="./libs/org.eclipse.ui.workbench_3.132.0.v20240524-2010.jar" sourcepath="./libs/org.eclipse.ui.workbench_3.132.0.v20240524-2010.jar"/>
+	<classpathentry kind="output" path="bin"/>	
 </classpath>
