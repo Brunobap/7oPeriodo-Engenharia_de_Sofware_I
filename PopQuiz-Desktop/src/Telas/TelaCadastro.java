@@ -1,27 +1,22 @@
 package Telas;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.CardLayout;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.FlowLayout;
-import javax.swing.JTextField;
-import java.awt.Window.Type;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
-import javax.swing.JTabbedPane;
+import java.awt.Font;
 import java.awt.GridLayout;
-import javax.swing.border.BevelBorder;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 public class TelaCadastro extends JFrame {
 
@@ -88,12 +83,22 @@ public class TelaCadastro extends JFrame {
 		JButton btnNewButton_2 = new JButton("Criar");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaCategorias categorias = new TelaCategorias();
-                categorias.setVisible(true);
-                dispose();
+				String senha = new String(passwordField_1.getPassword());
+				String confirmarSenha = new String(passwordField_2.getPassword());
+				
+				// Verificar se as senhas são iguais
+				if (!senha.equals(confirmarSenha)) {
+					JOptionPane.showMessageDialog(null, "Senhas diferentes, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
+				} else {
+					// Senhas iguais, pode avançar para a próxima tela
+					TelaCategorias categorias = new TelaCategorias();
+					categorias.setVisible(true);
+					dispose();
+				}
 			}
 		});
 		cmpButtons_1.add(btnNewButton_2);
+		
 		JButton btnNewButton_1 = new JButton("Já tem conta? Entre por aqui");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
