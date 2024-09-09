@@ -1,6 +1,9 @@
 CREATE DATABASE strauss;
 USE strauss;
 
+CREATE TABLE test(id int);
+select * from test;
+
 CREATE TABLE quizzes(
 	id_perg1 int NOT NULL,
     id_perg2 int NOT NULL,
@@ -28,12 +31,20 @@ CREATE TABLE perguntas(
 );
 
 CREATE TABLE usuarios(
-	nome varchar(30) NOT NULL,
     email varchar(30) NOT NULL,
     senha varchar(16) NOT NULL,
     idTabLvl int NOT NULL,
     idTabAcv int NOT NULL
 );
+
+ALTER TABLE usuarios
+DROP COLUMN idTabLvl,
+DROP COLUMN idTabAcv;
+
+
+INSERT INTO usuarios(email,senha) VALUES("bolas","mamaco");
+
+select * from usuarios;
 
 CREATE TABLE tabConquistas(
 	id_usuario int NOT NULL,

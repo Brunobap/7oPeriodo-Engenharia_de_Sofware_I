@@ -2,10 +2,13 @@ package Telas;
 
 import java.awt.EventQueue;
 
+import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.GridLayout;
 import javax.swing.JTextField;
@@ -15,12 +18,14 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class TelaLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;
+	
 
 	/**
 	 * Create the frame.
@@ -68,6 +73,7 @@ public class TelaLogin extends JFrame {
 		passwordField = new JPasswordField();
 		passwordField.setToolTipText("Senha");
 		cmpSenha.add(passwordField);
+		System.out.println(passwordField);
 		
 		JPanel cmpButtons = new JPanel();
 		cmpButtons.setBounds(74, 235, 346, 94);
@@ -80,6 +86,17 @@ public class TelaLogin extends JFrame {
                 TelaCategorias categorias = new TelaCategorias();
                 categorias.setVisible(true);
                 dispose();
+        		try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/strauss","root","coxinha");
+                    System.out.println("inserindo dados");
+                    Statement stmt=con.createStatement();
+                    String sql="INSERT INTO usuarios(email,senha) VALUES('"+textField.getText()+"','"+passwordField.getText().toString()+"')";
+                    stmt.executeUpdate(sql);
+                }
+                catch (Exception execao){
+                    System.out.println(execao);
+                }
 			}
 		});
 		cmpButtons.add(btnNewButton);
