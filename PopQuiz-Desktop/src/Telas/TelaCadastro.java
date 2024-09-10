@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 import javax.swing.JButton;
@@ -77,6 +78,7 @@ public class TelaCadastro extends JFrame {
 		passwordField_1 = new JPasswordField();
 		passwordField_1.setToolTipText("Senha");
 		cmpSenha_1.add(passwordField_1);
+		String senha = new String(passwordField_1.getPassword());
 		
 		JPanel cmpButtons_1 = new JPanel();
 		cmpButtons_1.setBounds(74, 299, 346, 94);
@@ -94,20 +96,23 @@ public class TelaCadastro extends JFrame {
 					JOptionPane.showMessageDialog(null, "Senhas diferentes, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
 				} else {
 					// Senhas iguais, pode avançar para a próxima tela
-					TelaCategorias categorias = new TelaCategorias();
-					categorias.setVisible(true);
-					dispose();
 					try {
 	                    Class.forName("com.mysql.cj.jdbc.Driver");
 	                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/strauss","root","coxinha");
-	                    System.out.println("inserindo dados");
-	                    Statement stmt=con.createStatement();
-	                    String sql="INSERT INTO usuarios(email,senha) VALUES('"+textField_1.getText()+"','"+passwordField_1.getText().toString()+"')";
-	                    stmt.executeUpdate(sql);
+	                    System.out.println("INSERINDO DADOS");
+	                    PreparedStatement ptmt=con.prepareStatement("INSERT INTO usuarios(email,senha) VALUES(?,?)");
+	                    ptmt.setString(1, textField_1.getText());
+	                    ptmt.setString(2, senha);
+	                    ptmt.executeUpdate();
 	                }
 	                catch (Exception execao){
 	                    System.out.println(execao);
 	                }
+					finally {
+						TelaCategorias categorias = new TelaCategorias();
+						categorias.setVisible(true);
+						dispose();
+					}
 				}
 			}
 		});

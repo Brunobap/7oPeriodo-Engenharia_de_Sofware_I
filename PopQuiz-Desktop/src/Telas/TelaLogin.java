@@ -74,6 +74,7 @@ public class TelaLogin extends JFrame {
 		passwordField.setToolTipText("Senha");
 		cmpSenha.add(passwordField);
 		System.out.println(passwordField);
+		String senha = new String(passwordField.getPassword());
 		
 		JPanel cmpButtons = new JPanel();
 		cmpButtons.setBounds(74, 235, 346, 94);
@@ -82,19 +83,24 @@ public class TelaLogin extends JFrame {
 		
 		JButton btnNewButton = new JButton("Entrar");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {        
+			public void actionPerformed(ActionEvent e) {
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/strauss","root","coxinha");
-                    System.out.println("inserindo dados");
+                    System.out.println("VERIFICANDO DADOS");
                     Statement stmt=con.createStatement();
                     String sql="Select * from usuarios where email='"+textField.getText()+"' and senha='"+passwordField.getText().toString()+"'";
                     ResultSet rs=stmt.executeQuery(sql);
-                    if(rs.next())
+                    if(rs.next()) {
                     	JOptionPane.showMessageDialog(null, "Login com Sucesso!");
-                    else
+                    	TelaCategorias categorias = new TelaCategorias();
+						categorias.setVisible(true);
+						dispose();
+                    }
+                    else {
                     	JOptionPane.showMessageDialog(null, "Login faiou");
-                    con.close();
+                    	con.close();
+                    }
                 }
                 catch (Exception execao){
                     System.out.println(execao);
