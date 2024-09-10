@@ -30,9 +30,10 @@ public class TelaCadastro extends JFrame {
 	private JPasswordField passwordField_1;
 	private JPasswordField passwordField_2;
 
-	/**
-	 * Create the frame.
-	 */
+	public boolean verificarSenhasIguais(String senha, String confirmarSenha) {
+	    return senha.equals(confirmarSenha) && !senha.isEmpty();
+	}
+
 	public TelaCadastro() {
 		setResizable(false);
 		setTitle("Cadastro");

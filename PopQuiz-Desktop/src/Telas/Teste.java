@@ -14,7 +14,7 @@ class Teste {
 TelaLogin telaLogin = new TelaLogin();
         
         // Definindo credenciais incorretas
-// coccokao
+		// coccokao
         String emailIncorreto = "usuario_nao_cadastrado@exemplo.com";
         String senhaIncorreta = "senhaerrada";
         
@@ -23,9 +23,9 @@ TelaLogin telaLogin = new TelaLogin();
         
         // Mensagem no console
         if (!resultado) {
-            System.out.println("Teste de login falhou corretamente para um usuário não cadastrado.");
+            System.out.println("Teste de login falhou para um usuário não cadastrado.");
         } else {
-            System.out.println("Teste de login falhou incorretamente para um usuário não cadastrado.");
+            System.out.println("ERRO Teste de login funcionou para um usuário não cadastrado.");
         }
 
         // Verificação padrão do JUnit
@@ -52,4 +52,44 @@ TelaLogin telaLogin = new TelaLogin();
 
         // Verificação padrão do JUnit
         assertTrue(resultado, "O login deveria ser bem-sucedido para um usuário cadastrado.");
-    }}
+        
+        
+   }
+	    TelaCadastro telaCadastro = new TelaCadastro(); // Instancia a classe TelaCadastro
+	
+	    @Test
+	    public void testSenhasIguais() {
+	        String senha = "senha123";
+	        String confirmarSenha = "senha123";
+	
+	        // Chama o método verificarSenhasIguais da classe TelaCadastro
+	        boolean resultado = telaCadastro.verificarSenhasIguais(senha, confirmarSenha);
+	        
+	        // Mensagem no console
+	        if (resultado) {
+	            System.out.println("Senhas iguais testadas corretamente.");
+	        } else {
+	            System.out.println("ERRO senhas iguais testadas incorretamente.");
+	        }
+	
+	        assertTrue(resultado, "As senhas deveriam ser iguais.");
+	    }
+	
+	    @Test
+	    public void testSenhasDiferentes() {
+	        String senha = "senha123";
+	        String confirmarSenha = "senha456";
+	
+	        boolean resultado = telaCadastro.verificarSenhasIguais(senha, confirmarSenha);
+	        
+	        // Mensagem no console
+	        if (!resultado) {
+	            System.out.println("Senhas diferentes testadas corretamente.");
+	        } else {
+	            System.out.println("ERRO senhas diferentes testadas incorretamente.");
+	        }
+	
+	        assertFalse(resultado, "As senhas deveriam ser diferentes.");
+	    }
+
+    }
