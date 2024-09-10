@@ -27,9 +27,13 @@ public class TelaLogin extends JFrame {
 	private JPasswordField passwordField;
 	
 
-	/**
-	 * Create the frame.
-	 */
+	 public boolean validarLogin(String email, String senha) {
+	        String emailCorreto = "usuario@exemplo.com";
+	        String senhaCorreta = "senha123";
+	        
+	        return email.equals(emailCorreto) && senha.equals(senhaCorreta);
+	    }
+	 
 	public TelaLogin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 483, 442);
