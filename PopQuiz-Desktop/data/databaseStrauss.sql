@@ -1,10 +1,17 @@
-CREATE DATABASE strauss;
-USE strauss;
+/* Parte 1: Criar o banco de dados e suas tabelas
+CREATE DATABASE IF NOT EXISTS popQuiz;
+USE popQuiz;
 
-CREATE TABLE test(id int);
-select * from test;
-
-CREATE TABLE quizzes(
+CREATE TABLE IF NOT EXISTS perguntas(
+	id int PRIMARY KEY,
+	respCerta varchar(20) NOT NULL,
+    respErradas varchar(80) NOT NULL,
+    peso int NOT NULL,
+    materia varchar(4) NOT NULL,
+    enunciado varchar(30) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS quizzes(
+	id int PRIMARY KEY,
 	id_perg1 int NOT NULL,
     id_perg2 int NOT NULL,
     id_perg3 int NOT NULL,
@@ -20,34 +27,52 @@ CREATE TABLE quizzes(
     id_perg13 int NOT NULL,
     id_perg14 int NOT NULL,
     id_perg15 int NOT NULL,
-    nome char(30) NOT NULL
+    nome char(30) NOT NULL,
+    
+	-- Referencias aos ids da tabela perguntas
+    FOREIGN KEY(id_perg1) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg2) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg3) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg4) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg5) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg6) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg7) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg8) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg9) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg10) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg11) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg12) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg13) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg14) REFERENCES perguntas(id),
+    FOREIGN KEY(id_perg15) REFERENCES perguntas(id)
 );
 
-CREATE TABLE perguntas(
-	respCerta varchar(20) NOT NULL,
-    respErradas varchar(80) NOT NULL,
-    perso int NOT NULL,
-    materia varchar(4) NOT NULL
-);
 
-CREATE TABLE usuarios(
+CREATE TABLE IF NOT EXISTS usuarios(
+	id int PRIMARY KEY auto_increment,
     email varchar(30) NOT NULL,
-    senha varchar(16) NOT NULL,
-    idTabLvl int NOT NULL,
-    idTabAcv int NOT NULL
+    senha varchar(16) NOT NULL
 );
-
-ALTER TABLE usuarios
-DROP COLUMN idTabLvl,
-DROP COLUMN idTabAcv;
-
-
-INSERT INTO usuarios(email,senha) VALUES("bolas","mamaco");
-
-select * from usuarios;
-
-CREATE TABLE tabConquistas(
-	id_usuario int NOT NULL,
+CREATE TABLE IF NOT EXISTS tabNiveis(
+	id_usuario int PRIMARY KEY,
+    xpMate int NOT NULL,
+    lvlMate int NOT NULL,
+    xpPort int NOT NULL,
+    lvlPort int NOT NULL,
+    xpHist int NOT NULL,
+    lvlHist int NOT NULL,
+    xpBiol int NOT NULL,
+    lvlBiol int NOT NULL,
+    xpIng int NOT NULL,
+    lvlIng int NOT NULL,
+    xpGeog int NOT NULL,
+    lvlGeog int NOT NULL,
+    
+    -- Referencia ao usuário dono da tabela
+    FOREIGN KEY(id_usuario) REFERENCES usuarios(id)
+);
+CREATE TABLE IF NOT EXISTS tabConquistas(
+	id_usuario int PRIMARY KEY,
     conq01 bool NOT NULL,
     conq02 bool NOT NULL,
     conq03 bool NOT NULL,
@@ -62,21 +87,17 @@ CREATE TABLE tabConquistas(
     conq12 bool NOT NULL,
     conq13 bool NOT NULL,
     conq14 bool NOT NULL,
-    conq15 bool NOT NULL
+    conq15 bool NOT NULL,
+    
+    -- Referencia ao usuário dono da tabela
+    FOREIGN KEY(id_usuario) REFERENCES usuarios(id)
 );
+*/
 
-CREATE TABLE tabNiveis(
-	id_usuario int NOT NULL,
-    xpMate int NOT NULL,
-    lvlMate int NOT NULL,
-    xpPort int NOT NULL,
-    lvlPort int NOT NULL,
-    xpHist int NOT NULL,
-    lvlHist int NOT NULL,
-    xpBiol int NOT NULL,
-    lvlBiol int NOT NULL,
-    xpIng int NOT NULL,
-    lvlIng int NOT NULL,
-    xpGeog int NOT NULL,
-    lvlGeog int NOT NULL
-);
+/* Parte 2: fazer os exemplos de perguntas, usuários e quizzes */
+-- Usuário pré-pronto
+-- INSERT INTO usuarios(email,senha) VALUES("fulano@gmail.com","senha");
+
+SELECT * FROM usuarios;
+SELECT * FROM tabNiveis;
+SELECT * FROM tabConquistas;

@@ -98,7 +98,7 @@ public class TelaCadastro extends JFrame {
 					// Senhas iguais, pode avançar para a próxima tela
 					try {
 	                    Class.forName("com.mysql.cj.jdbc.Driver");
-	                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/strauss","root","coxinha");
+	                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/strauss","root","R00t%P4$$");
 	                    System.out.println("INSERINDO DADOS");
 	                    PreparedStatement ptmt=con.prepareStatement("INSERT INTO usuarios(email,senha) VALUES(?,?)");
 	                    ptmt.setString(1, textField_1.getText());
