@@ -14,6 +14,7 @@ class Teste {
 TelaLogin telaLogin = new TelaLogin();
         
         // Definindo credenciais incorretas
+// coccokao
         String emailIncorreto = "usuario_nao_cadastrado@exemplo.com";
         String senhaIncorreta = "senhaerrada";
         
