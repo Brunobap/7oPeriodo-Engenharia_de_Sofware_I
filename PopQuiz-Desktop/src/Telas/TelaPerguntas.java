@@ -138,9 +138,10 @@ public class TelaPerguntas extends JFrame {
 	}
 	
 	private void atualizaTela() {
-		if (ponteiro >= 4) {
+		if (ponteiro >= perguntas.length) {
 			System.out.println(this.pontuacao);
 			this.dispose();
+			return ;
 		}
 		
 		enunciado.setText(perguntas[ponteiro].enunciado);

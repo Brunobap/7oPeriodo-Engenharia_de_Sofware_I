@@ -90,7 +90,7 @@ public class TelaLogin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/strauss","root","coxinha");
+                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/popQuiz","root","R00t%P4$$");
                     System.out.println("VERIFICANDO DADOS");
                     Statement stmt=con.createStatement();
                     String sql="Select * from usuarios where email='"+textField.getText()+"' and senha='"+passwordField.getText().toString()+"'";
@@ -102,7 +102,7 @@ public class TelaLogin extends JFrame {
 						dispose();
                     }
                     else {
-                    	JOptionPane.showMessageDialog(null, "Login faiou");
+                    	JOptionPane.showMessageDialog(null, "Login faiou", "Erro", JOptionPane.ERROR_MESSAGE);
                     	con.close();
                     }
                 }

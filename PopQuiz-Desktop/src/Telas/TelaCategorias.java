@@ -6,9 +6,11 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
+import java.sql.*;
 import java.awt.event.ActionEvent;
 
 public class TelaCategorias extends JFrame {
@@ -32,18 +34,62 @@ public class TelaCategorias extends JFrame {
         JButton btnMatematica = new JButton("Matematica");
         btnMatematica.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		Pergunta[] usadas = new Pergunta[5];
-        		for (int i=0; i<5; i++) {
-        			String[] erradas = new String[3];
-        			for (int j=0; j<3; j++) erradas[j] = "não é essa\n"+j;
-        			Pergunta p = new Pergunta("POR AQUI", "teste "+i, "Matemática", erradas, i);
-        			usadas[i] = p;
-        		}
-        		
-        		TelaPerguntas perguntas = new TelaPerguntas("Matematica", usadas);
-        		perguntas.setVisible(true);
+        		try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/popQuiz","root","R00t%P4$$");
+                    System.out.println("BUSCANDO PERGUNTAS");
+                    Statement stmt=con.createStatement();
+                    String sql="Select * from quizzes where nome='Matematica'";
+                    ResultSet rs=stmt.executeQuery(sql);
+                                                  
+
+                    if(rs.next()) {
+	                    int tam = 5;
+	                    Pergunta[] usadas = new Pergunta[tam];
+	                    
+	                    for (int i=1; i<=tam; i++) {
+	                    	stmt = con.createStatement();
+	                    	sql = "Select * from perguntas where id="+i;
+	                        ResultSet res = stmt.executeQuery(sql);
+	                                         
+	                        if (res.next()) { 
+		                        int peso = res.getInt("peso");
+		                        String materia = res.getString("materia");
+		                        String enunciado = res.getString("enunciado");
+			                    String respCerta = res.getString("respCerta");
+			                    String erradas = res.getString("respErradas");
+				               
+			                    String[] respErradas = erradas.split(",");
+			                    for (int j=0; j<3; j++) {
+			                    	String resp = respErradas[j];
+			                    	respErradas[j] = resp.substring(1, resp.length()-1);
+			                    }
+			                    		                    
+		                    	Pergunta p = new Pergunta(respCerta, enunciado, materia, respErradas, peso);
+		                    	usadas[i-1] = p;
+
+		                    } else {
+		                    	JOptionPane.showMessageDialog(null, "Login faiou", "Erro", JOptionPane.ERROR_MESSAGE);
+		                    	con.close();
+		                    	return;
+		                    }
+	                    }
+	                    
+	                	TelaPerguntas perguntas = new TelaPerguntas(rs.getString("nome"), usadas);
+	                	perguntas.setVisible(true);
+						dispose();
+						
+                    } else {
+                    	JOptionPane.showMessageDialog(null, "Login faiou", "Erro", JOptionPane.ERROR_MESSAGE);
+                    	con.close();
+                    }
+                }
+                catch (Exception execao){
+                    System.out.println(execao);
+                }
         	}
         });
+
         contentPane.add(btnMatematica);
 
         JButton btnPortugues = new JButton("Portugues");
